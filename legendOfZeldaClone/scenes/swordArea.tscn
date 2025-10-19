@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://d4db16brd2ecl"]
+
+[ext_resource type="Texture2D" uid="uid://whrm8yeysm6n" path="res://sprites/sword.png" id="1_6j717"]
+[ext_resource type="Script" uid="uid://cjrh5x1k3fadn" path="res://scripts/swordArea.gd" id="1_w1lym"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w1lym"]
+size = Vector2(18, 9)
+
+[node name="swordArea" type="Area2D"]
+top_level = true
+script = ExtResource("1_w1lym")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_w1lym")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_6j717")
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+rect = Rect2(-2, -2, 4, 3)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
