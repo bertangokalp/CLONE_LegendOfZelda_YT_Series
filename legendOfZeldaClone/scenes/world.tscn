@@ -1,0 +1,74 @@
+[gd_scene load_steps=4 format=3 uid="uid://c0hvw27wbccb4"]
+
+[ext_resource type="Texture2D" uid="uid://cx0uv5bp11xl1" path="res://sprites/dungeon.png" id="1_nnsk1"]
+[ext_resource type="PackedScene" uid="uid://2r5dqe2feauo" path="res://scenes/player.tscn" id="2_rwgxs"]
+[ext_resource type="Script" uid="uid://cw1kqy3ncjoo1" path="res://scripts/camera2D.gd" id="3_4wyf3"]
+
+[node name="World" type="Node2D"]
+
+[node name="dungeon_1" type="Sprite2D" parent="."]
+position = Vector2(128, 120)
+texture = ExtResource("1_nnsk1")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="dungeon_1"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="dungeon_1/StaticBody2D"]
+polygon = PackedVector2Array(-96, -8, -128, -24, -128, -88, -96, -56)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="dungeon_1/StaticBody2D"]
+polygon = PackedVector2Array(-128, -88, 128, -88, 96, -56, -96, -56)
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="dungeon_1/StaticBody2D"]
+polygon = PackedVector2Array(96, -56, 96, -8, 128, -24, 128, -88)
+
+[node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="dungeon_1/StaticBody2D"]
+polygon = PackedVector2Array(96, 8, 128, 24, 128, 88, 96, 56)
+
+[node name="CollisionPolygon2D5" type="CollisionPolygon2D" parent="dungeon_1/StaticBody2D"]
+polygon = PackedVector2Array(96, 56, 128, 88, 24, 88, 8, 56)
+
+[node name="CollisionPolygon2D6" type="CollisionPolygon2D" parent="dungeon_1/StaticBody2D"]
+polygon = PackedVector2Array(-8, 56, -24, 88, -128, 88, -96, 56)
+
+[node name="CollisionPolygon2D7" type="CollisionPolygon2D" parent="dungeon_1/StaticBody2D"]
+polygon = PackedVector2Array(-96, 56, -128, 88, -128, 16, -96, 8)
+
+[node name="CollisionPolygon2D8" type="CollisionPolygon2D" parent="dungeon_1/StaticBody2D"]
+polygon = PackedVector2Array(-16, -8, -16, 8, 0, 8, 0, -8)
+
+[node name="dungeon_2" type="Sprite2D" parent="."]
+position = Vector2(384, 120)
+rotation = 3.1415927
+texture = ExtResource("1_nnsk1")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="dungeon_2"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="dungeon_2/StaticBody2D"]
+polygon = PackedVector2Array(-96, -8, -128, -24, -128, -88, -96, -56)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="dungeon_2/StaticBody2D"]
+polygon = PackedVector2Array(-128, -88, 128, -88, 96, -56, -96, -56)
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="dungeon_2/StaticBody2D"]
+polygon = PackedVector2Array(96, -56, 96, -8, 128, -24, 128, -88)
+
+[node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="dungeon_2/StaticBody2D"]
+polygon = PackedVector2Array(96, 8, 128, 24, 128, 88, 96, 56)
+
+[node name="CollisionPolygon2D5" type="CollisionPolygon2D" parent="dungeon_2/StaticBody2D"]
+polygon = PackedVector2Array(96, 56, 128, 88, 24, 88, 8, 56)
+
+[node name="CollisionPolygon2D6" type="CollisionPolygon2D" parent="dungeon_2/StaticBody2D"]
+polygon = PackedVector2Array(-8, 56, -24, 88, -128, 88, -96, 56)
+
+[node name="CollisionPolygon2D7" type="CollisionPolygon2D" parent="dungeon_2/StaticBody2D"]
+polygon = PackedVector2Array(-96, 56, -128, 88, -128, 16, -96, 8)
+
+[node name="CollisionPolygon2D8" type="CollisionPolygon2D" parent="dungeon_2/StaticBody2D"]
+polygon = PackedVector2Array(-16, -8, -16, 8, 0, 8, 0, -8)
+
+[node name="Player" parent="." instance=ExtResource("2_rwgxs")]
+position = Vector2(144, 120)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+script = ExtResource("3_4wyf3")
